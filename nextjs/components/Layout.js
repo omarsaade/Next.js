@@ -1,10 +1,13 @@
-import React from 'react'
+import Navbar from "./Navbar"
 
-function Layout() {
+function Layout(props) {
     return (
-        <h1>
-            Hello From Layout
-        </h1>
+        <>
+            <Navbar />
+            <h1>Hello From Layout</h1>
+            {props.children}
+            <footer>Footer</footer>
+        </>
     )
 }
 
