@@ -4,6 +4,7 @@ function Details(props) {
     return (
         <div>
             Dynamic
+            {/* {console.log(props.post)} */}
             <p>{props.post.title}</p>
         </div>
     )
@@ -16,8 +17,8 @@ export default Details;
 
 
 // hol el tnen lezem yusat3malo sawa
-export async function getStaticPaths(context) {
-    const res = await fetch("https://jsonplaceholder.typicode.com/posts?_limit=10");
+export async function getStaticPaths() {
+    const res = await fetch("http://localhost:3000/api/posts");
     const data = await res.json();
 
     const paths = data.map(d => {
@@ -40,7 +41,7 @@ export async function getStaticPaths(context) {
 
 
 export async function getStaticProps(context) {
-    const res = await fetch(`https://jsonplaceholder.typicode.com/posts/${context.params.id}`);
+    const res = await fetch(`http://localhost:3000/api/posts/${context.params.id}`);
     const data = await res.json();
 
     return {
